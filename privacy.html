@@ -1,276 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Data Policy — Learnova</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>User Data Policy — Learnova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F8F7F4;
+  --ink:#0E0D0C;
+  --ink2:#5C5A57;
+  --ink3:#A8A6A2;
+  --accent:#F59E0B;
+  --accent-dk:#D97706;
+  --accent-lt:#FEF3C7;
+  --white:#FFFFFF;
+  --dark:#111010;
+  --border:rgba(14,13,12,0.08);
+  --r:16px;
+  --font:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
 
-    :root {
-      --bg: #f7f6f3;
-      --ink: #111010;
-      --ink-2: #5a5856;
-      --ink-3: #aaa8a5;
-      --accent: #f59e0b;
-      --white: #ffffff;
-      --border: rgba(17,16,16,0.08);
-      --radius: 16px;
-    }
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+  background:rgba(248,247,244,0.92);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-weight:900;font-size:1.2rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none;}
+.nav-logo em{font-style:normal;color:var(--accent);}
+.nav-back{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.83rem;font-weight:700;color:var(--ink2);text-decoration:none;
+  padding:.4rem .9rem;border-radius:50px;
+  border:1px solid var(--border);background:var(--white);
+  transition:all .2s;
+}
+.nav-back:hover{color:var(--ink);border-color:var(--ink3);}
+.nav-back svg{width:14px;height:14px;}
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.7;
-    }
+.hero{
+  padding:120px 5vw 60px;
+  max-width:760px;margin:0 auto;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--accent-lt);color:#92400E;
+  font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:.4rem 1rem;border-radius:50px;
+  border:1px solid rgba(245,158,11,.25);
+  margin-bottom:1.2rem;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#D97706;}
+.hero h1{
+  font-weight:900;font-size:clamp(2rem,4vw,3rem);
+  letter-spacing:-.025em;line-height:1.08;margin-bottom:.75rem;
+}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-meta{
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  font-size:.82rem;font-weight:600;color:var(--ink3);
+  padding-top:1rem;border-top:1px solid var(--border);margin-top:1.2rem;
+}
+.hero-meta span{display:flex;align-items:center;gap:.35rem;}
+.hero-meta svg{width:14px;height:14px;flex-shrink:0;}
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      height: 64px; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 6vw;
-      background: rgba(247,246,243,0.92); backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: 1.3rem; letter-spacing: .02em;
-      color: var(--ink); text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-back {
-      font-size: .88rem; font-weight: 700; color: var(--ink-2);
-      text-decoration: none; display: flex; align-items: center; gap: .4rem;
-      transition: color .2s;
-    }
-    .nav-back:hover { color: var(--ink); }
+.content{
+  max-width:760px;margin:0 auto;
+  padding:0 5vw 100px;
+}
 
-    /* HERO */
-    .policy-hero {
-      background: var(--ink); color: var(--white);
-      padding: 64px 6vw 56px;
-    }
-    .policy-hero-inner { max-width: 760px; margin: 0 auto; }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(245,158,11,.15); color: var(--accent);
-      font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
-      padding: .35rem .9rem; border-radius: 50px; margin-bottom: 1.2rem;
-    }
-    .policy-hero h1 {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15; letter-spacing: -.01em;
-      margin-bottom: .75rem;
-    }
-    .policy-hero .updated {
-      font-size: .88rem; color: rgba(255,255,255,.4); font-weight: 500;
-    }
+.toc{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.4rem 1.6rem;margin-bottom:3rem;
+}
+.toc-title{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.toc-list a{
+  display:flex;align-items:center;gap:.6rem;
+  font-size:.88rem;font-weight:600;color:var(--ink2);text-decoration:none;
+  transition:color .2s;
+}
+.toc-list a:hover{color:var(--ink);}
+.toc-num{
+  width:22px;height:22px;border-radius:6px;
+  background:var(--bg);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:800;color:var(--ink3);flex-shrink:0;
+}
 
-    /* CONTENT */
-    .policy-wrap {
-      max-width: 760px; margin: 0 auto;
-      padding: 56px 6vw 100px;
-    }
+.section{margin-bottom:2.5rem;}
+.section-header{
+  display:flex;align-items:flex-start;gap:1rem;
+  margin-bottom:1rem;padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+.section-num{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--ink);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:900;flex-shrink:0;margin-top:2px;
+}
+.section-num.accent{background:var(--accent);color:var(--ink);}
+.section h2{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;}
+.section p{font-size:.92rem;color:var(--ink2);line-height:1.75;margin-bottom:.75rem;}
+.section p:last-child{margin-bottom:0;}
+.section ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:.75rem 0;}
+.section ul li{
+  display:flex;align-items:flex-start;gap:.7rem;
+  font-size:.9rem;color:var(--ink2);line-height:1.6;
+}
+.li-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+  flex-shrink:0;margin-top:.55rem;
+}
 
-    .intro-box {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.6rem 1.8rem;
-      margin-bottom: 2.5rem;
-      font-size: .95rem; color: var(--ink-2); line-height: 1.7;
-    }
+.highlight-card{
+  background:var(--accent-lt);border:1px solid rgba(245,158,11,.25);
+  border-radius:var(--r);padding:1.4rem 1.6rem;
+  display:flex;align-items:flex-start;gap:1rem;
+  margin:2rem 0;
+}
+.highlight-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--accent);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.highlight-icon svg{width:18px;height:18px;}
+.highlight-text{font-size:.88rem;font-weight:600;color:#78350F;line-height:1.6;}
+.highlight-text strong{font-weight:800;color:#92400E;}
 
-    .policy-section {
-      margin-bottom: 2.2rem;
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-    }
+.contact-card{
+  background:var(--dark);border-radius:var(--r);
+  padding:2rem 2rem;margin-top:3rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.contact-card h3{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:.3rem;}
+.contact-card p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.55;}
+.contact-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--accent);color:var(--ink);
+  padding:.65rem 1.4rem;border-radius:10px;
+  font-size:.85rem;font-weight:800;text-decoration:none;white-space:nowrap;
+  transition:transform .2s,background .2s;flex-shrink:0;
+}
+.contact-btn:hover{transform:translateY(-2px);background:#FBBF24;}
 
-    .section-header {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1.2rem 1.6rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .section-num {
-      width: 32px; height: 32px; border-radius: 10px;
-      background: #fef3c7; color: #92400e;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .8rem; font-weight: 900; flex-shrink: 0;
-    }
-    .section-header h2 {
-      font-size: 1rem; font-weight: 800; color: var(--ink);
-    }
+footer{
+  background:var(--dark);color:rgba(255,255,255,.3);
+  padding:2rem 5vw;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.footer-logo{font-weight:900;font-size:1.1rem;color:rgba(255,255,255,.8);text-decoration:none;}
+.footer-logo em{font-style:normal;color:var(--accent);}
+footer p{font-size:.8rem;font-weight:500;}
+footer a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.8rem;font-weight:600;transition:color .2s;}
+footer a:hover{color:rgba(255,255,255,.6);}
 
-    .section-body {
-      padding: 1.4rem 1.6rem;
-      font-size: .93rem; color: var(--ink-2);
-    }
-    .section-body p { margin-bottom: .6rem; }
-    .section-body p:last-child { margin-bottom: 0; }
-
-    .section-body ul {
-      padding-left: 0; list-style: none;
-      display: flex; flex-direction: column; gap: .55rem;
-    }
-    .section-body ul li {
-      display: flex; gap: .7rem; align-items: flex-start;
-    }
-    .section-body ul li::before {
-      content: '·'; color: var(--accent); font-size: 1.4rem;
-      line-height: 1.2; flex-shrink: 0; font-weight: 900;
-    }
-
-    .section-body strong { color: var(--ink); font-weight: 700; }
-
-    /* Highlight row */
-    .highlight-row {
-      display: flex; align-items: flex-start; gap: .75rem;
-      background: #f0fdf4; border: 1px solid #bbf7d0;
-      border-radius: 10px; padding: .9rem 1rem;
-      margin-bottom: .6rem;
-    }
-    .highlight-row:last-child { margin-bottom: 0; }
-    .hl-icon { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
-    .hl-text strong { color: #166534; font-weight: 700; display: block; font-size: .9rem; }
-    .hl-text span { font-size: .84rem; color: #4b7a5e; }
-
-    /* Contact */
-    .contact-box {
-      background: var(--ink); color: var(--white);
-      border-radius: var(--radius); padding: 2rem 1.8rem;
-      text-align: center; margin-top: 2.5rem;
-    }
-    .contact-box h2 { font-weight: 900; font-size: 1.2rem; margin-bottom: .5rem; }
-    .contact-box p { font-size: .9rem; color: rgba(255,255,255,.5); margin-bottom: 1.2rem; }
-    .contact-btn {
-      display: inline-block;
-      background: var(--accent); color: var(--ink);
-      padding: .65rem 1.6rem; border-radius: 50px;
-      font-weight: 800; font-size: .9rem; text-decoration: none;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245,158,11,.35); }
-
-    /* FOOTER */
-    footer {
-      background: #111010; color: rgba(255,255,255,.4);
-      padding: 2.5rem 6vw;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
-    footer .nav-logo { color: #fff; }
-    footer p { font-size: .82rem; font-weight: 500; }
-    footer a { color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; font-weight: 600; }
-    footer a:hover { color: #fff; }
-  </style>
+.rv{opacity:0;transform:translateY(20px);transition:opacity .55s,transform .55s;}
+.rv.vis{opacity:1;transform:translateY(0);}
+</style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">LEARN<span>OVA</span></a>
-  <a class="nav-back" href="index.html">← Ana Sayfa</a>
+  <a class="nav-logo" href="index.html">LEARN<em>OVA</em></a>
+  <a class="nav-back" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Ana Sayfa
+  </a>
 </nav>
 
-<div class="policy-hero">
-  <div class="policy-hero-inner">
-    <div class="hero-tag">Legal</div>
-    <h1>User Data Policy</h1>
-    <div class="updated">Last Updated: April 25, 2026</div>
+<div class="hero">
+  <div class="hero-badge rv"><span class="hero-badge-dot"></span>Legal</div>
+  <h1 class="rv">User Data <em>Policy</em></h1>
+  <div class="hero-meta rv">
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Last Updated: April 25, 2026
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Learnova Grammar App
+    </span>
   </div>
 </div>
 
-<div class="policy-wrap">
+<div class="content">
 
-  <div class="intro-box">
-    At <strong>Learnova Grammar App</strong>, your privacy is our utmost priority. This policy outlines how we handle user data to ensure transparency and trust. By using the app, you agree to the practices described in this policy.
+  <div class="toc rv">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">1</span>Data We Do Not Collect</a></li>
+      <li><a href="#s2"><span class="toc-num">2</span>Data Sharing</a></li>
+      <li><a href="#s3"><span class="toc-num">3</span>Security Measures</a></li>
+      <li><a href="#s4"><span class="toc-num">4</span>Your Rights</a></li>
+      <li><a href="#s5"><span class="toc-num">5</span>Third-Party Services</a></li>
+      <li><a href="#s6"><span class="toc-num">6</span>Policy Updates</a></li>
+    </ul>
   </div>
 
-  <div class="policy-section">
+  <div class="highlight-card rv">
+    <div class="highlight-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div class="highlight-text">
+      <strong>Your privacy is our priority.</strong> Learnova is designed to work entirely on your device. We do not collect, store, or process any personal data whatsoever.
+    </div>
+  </div>
+
+  <div class="section rv" id="s1">
     <div class="section-header">
-      <div class="section-num">1</div>
+      <div class="section-num accent">1</div>
       <h2>Data We Do Not Collect</h2>
     </div>
-    <div class="section-body">
-      <p>Learnova Grammar App is designed with your privacy in mind. We do not:</p>
-      <ul>
-        <li>Collect any personal information through Google Play or any other third-party platforms.</li>
-        <li>Store or process analytics data or user activity logs.</li>
-      </ul>
-      <p style="margin-top:.8rem">Your usage of the app is entirely private and not tracked.</p>
-    </div>
+    <p>Learnova Grammar App is built with a privacy-first approach. We do not:</p>
+    <ul>
+      <li><span class="li-dot"></span>Collect any personal information through Google Play or any other third-party platforms.</li>
+      <li><span class="li-dot"></span>Store or process analytics data, behavioral data, or user activity logs.</li>
+      <li><span class="li-dot"></span>Request access to your contacts, location, camera, or any device sensors.</li>
+    </ul>
+    <p>Your usage of the app is entirely private and remains on your device at all times.</p>
   </div>
 
-  <div class="policy-section">
+  <div class="section rv" id="s2">
     <div class="section-header">
       <div class="section-num">2</div>
       <h2>Data Sharing</h2>
     </div>
-    <div class="section-body">
-      <p>We do not share, sell, or trade any user data with third parties since no data is collected.</p>
-    </div>
+    <p>We do not share, sell, rent, or trade any user data with third parties. Since no data is collected in the first place, there is nothing to share.</p>
+    <p>No advertising networks, data brokers, or analytics companies receive any information from Learnova.</p>
   </div>
 
-  <div class="policy-section">
+  <div class="section rv" id="s3">
     <div class="section-header">
       <div class="section-num">3</div>
       <h2>Security Measures</h2>
     </div>
-    <div class="section-body">
-      <p>While we do not collect or store user data, we implement robust measures to ensure the app's security, including:</p>
-      <ul>
-        <li>Preventing unauthorized access to app functionalities.</li>
-      </ul>
-    </div>
+    <p>While we do not collect or store user data, we take the security of the app seriously and implement measures including:</p>
+    <ul>
+      <li><span class="li-dot"></span>Preventing unauthorized access to app functionalities.</li>
+      <li><span class="li-dot"></span>Regular code reviews to ensure no unintended data exposure.</li>
+      <li><span class="li-dot"></span>Ensuring all app content is served securely and locally.</li>
+    </ul>
   </div>
 
-  <div class="policy-section">
+  <div class="section rv" id="s4">
     <div class="section-header">
       <div class="section-num">4</div>
       <h2>Your Rights</h2>
     </div>
-    <div class="section-body">
-      <p>Since no data is collected, you retain complete control over your experience within the app. Your data remains private and local to your device.</p>
-    </div>
+    <p>Since no data is collected, you retain complete control over your experience within the app. All progress data, quiz results, and preferences are stored locally on your device and are never transmitted externally.</p>
+    <p>You may uninstall the app at any time to remove all locally stored data from your device.</p>
   </div>
 
-  <div class="policy-section">
+  <div class="section rv" id="s5">
     <div class="section-header">
       <div class="section-num">5</div>
       <h2>Third-Party Services</h2>
     </div>
-    <div class="section-body">
-      <p>Learnova Grammar App does not integrate with any third-party services, trackers, or analytics tools. Any links to external resources (if applicable) are for informational purposes only and do not involve data collection.</p>
-    </div>
+    <p>Learnova Grammar App does not integrate with any third-party services, trackers, or analytics tools. The app operates fully offline and does not make any network requests that could result in data collection.</p>
+    <p>Any links to external resources are for informational purposes only and do not involve data collection on our part.</p>
   </div>
 
-  <div class="policy-section">
+  <div class="section rv" id="s6">
     <div class="section-header">
       <div class="section-num">6</div>
       <h2>Policy Updates</h2>
     </div>
-    <div class="section-body">
-      <p>This User Data Policy may be updated periodically to reflect changes in app functionality or legal requirements. Updates will be communicated within the app. We encourage you to review the policy regularly for any changes.</p>
-    </div>
+    <p>This User Data Policy may be updated periodically to reflect changes in app functionality or applicable legal requirements. Any significant changes will be communicated within the app.</p>
+    <p>We encourage you to review this policy regularly. Continued use of the app after any changes constitutes your acceptance of the updated policy.</p>
   </div>
 
-  <div class="contact-box">
-    <h2>Questions or Concerns?</h2>
-    <p>If you have any questions about this User Data Policy, feel free to reach out.</p>
-    <a class="contact-btn" href="mailto:spinelapps0@gmail.com">Contact Us</a>
+  <div class="contact-card rv">
+    <div>
+      <h3>Questions or Concerns?</h3>
+      <p>If you have any questions about this User Data Policy, we're happy to help.</p>
+    </div>
+    <a class="contact-btn" href="mailto:spinelapps0@gmail.com">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Contact Us
+    </a>
   </div>
 
 </div>
 
 <footer>
-  <a class="nav-logo" href="index.html">LEARN<span style="color:var(--accent)">OVA</span></a>
+  <a class="footer-logo" href="index.html">LEARN<em>OVA</em></a>
   <p>© 2026 Learnova. All rights reserved.</p>
   <a href="privacy.html">User Data Policy</a>
 </footer>
 
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('vis'), i * 60);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
